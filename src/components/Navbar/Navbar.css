@@ -1,12 +1,64 @@
-nav {
-  height: 70px;
-  background-color: #111827;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 0 40px;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 64px;
+
+    display: flex;
+    justify-content: center;
+
+    backdrop-filter: blur(12px);
+    background: rgba(10, 10, 15, 0.8);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    z-index: 1000;
 }
 
-nav h1 {
-  font-size: 28px;
+.navbar-container {
+    width: 100%;
+    max-width: 1280px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 24px;
+}
+
+.navbar h1 {
+    color: #f0f0f5;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.theme-btn {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.05);
+
+    color: white;
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: all .25s ease;
+}
+
+.theme-btn:hover {
+    transform: rotate(20deg) scale(1.08);
+
+    background: rgba(255,255,255,.12);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.3);
 }

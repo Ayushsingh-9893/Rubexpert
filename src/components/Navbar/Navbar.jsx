@@ -2,8 +2,14 @@ import "./Navbar.css";
 
 function Navbar() {
   return (
-    <nav>
-      <h1>RubExpert</h1>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <h1>RubExpert</h1>
+
+        <button className="theme-btn" aria-label="Toggle Theme">
+          🌙
+        </button>
+      </div>
     </nav>
   );
 }

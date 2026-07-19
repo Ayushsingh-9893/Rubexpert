@@ -1,0 +1,25 @@
+.cube{
+    flex: 2;
+    background: white;
+    color: black;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cube h2 {
+    margin-bottom: 20px;
+}
+
+.cube-display {
+    height: 400px;
+    border: 2px dashed #bdbdbd;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 20px;
+    color: #777;
+}

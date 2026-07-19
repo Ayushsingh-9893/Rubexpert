@@ -1,7 +1,17 @@
 import './Controls.css';
 
 function Controls(){
-    return <h2>Controls section</h2>;
+    return(
+        <aside className='controls'>
+            
+            <h2>Contorls</h2>
+            <button>Scan Cube</button>
+             <button>Manual Input</button>
+            <button>Solve Cube</button>
+            <button>Reset</button>
+
+        </aside>
+    );
 }
 
 export default Controls;

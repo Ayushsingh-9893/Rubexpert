@@ -1,0 +1,53 @@
+.solution {
+    margin-top: 30px;
+    padding: 24px;
+}
+
+.solution h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.solution-box {
+    min-height: 180px;
+
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #8a8a9a;
+    text-align: center;
+
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.solve-btn {
+    display: block;
+    width: 220px;
+
+    margin: auto;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #22c55e;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.2s;
+}
+
+.solve-btn:hover {
+    background: #16a34a;
+}
