@@ -1,28 +1,64 @@
 import "./ManualInput.css";
 import Face from "../Face/Face";
 
-function ManualInput({ selectedColor }) {
-  return (
-    <section className="manual-input glass-card">
+function ManualInput({
+    cubeState,
+    setCubeState,
+    selectedColor,
+    resetCube
+}) {
 
-      <h3>Manual Input</h3>
+    const middleFaces = ["L", "F", "R", "B"];
 
-      <div className="cube-net">
+    return (
+        <section className="manual-input glass-card">
 
-            <Face title="U" color="white" selectedColor={selectedColor} />
+            <h2>Manual Input</h2>
 
-        <div className="middle-row">
-            <Face title="L" color="orange" selectedColor={selectedColor} />
-            <Face title="F" color="green" selectedColor={selectedColor} />
-            <Face title="R" color="red" selectedColor={selectedColor} />
-            <Face title="B" color="blue" selectedColor={selectedColor} />
-        </div>
+            <div className="cube-net">
 
-        <Face title="D" color="yellow" selectedColor={selectedColor} />
+                <Face
+                    title="U"
+                    stickers={cubeState.U}
+                    cubeState={cubeState}
+                    setCubeState={setCubeState}
+                    selectedColor={selectedColor}
+                />
 
-</div>
-    </section>
-  );
+                <div className="middle-row">
+
+                    {middleFaces.map((face) => (
+                        <Face
+                            key={face}
+                            title={face}
+                            stickers={cubeState[face]}
+                            cubeState={cubeState}
+                            setCubeState={setCubeState}
+                            selectedColor={selectedColor}
+                        />
+                    ))}
+
+                </div>
+
+                <Face
+                    title="D"
+                    stickers={cubeState.D}
+                    cubeState={cubeState}
+                    setCubeState={setCubeState}
+                    selectedColor={selectedColor}
+                />
+
+            </div>
+
+            <button
+                className="reset-btn"
+                onClick={resetCube}
+            >
+                Reset Cube
+            </button>
+
+        </section>
+    );
 }
 
 export default ManualInput;

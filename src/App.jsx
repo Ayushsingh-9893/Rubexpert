@@ -19,6 +19,16 @@ function App() {
     L: Array(9).fill("orange"),
     R: Array(9).fill("red"),
 });
+function resetCube() {
+    setCubeState({
+        U: Array(9).fill("white"),
+        D: Array(9).fill("yellow"),
+        F: Array(9).fill("green"),
+        B: Array(9).fill("blue"),
+        L: Array(9).fill("orange"),
+        R: Array(9).fill("red"),
+    });
+}
   return (
     <>
       <Navbar />
@@ -32,6 +42,7 @@ function App() {
               cubeState={cubeState}
               setCubeState={setCubeState}
               selectedColor={selectedColor}
+              resetCube={resetCube}
           />
           <ColorPallete
             selectedColor={selectedColor}
@@ -39,7 +50,7 @@ function App() {
           />
         </section>
         <Scanner />
-        <Solution />
+        <Solution cubeState={cubeState} />
         <Footer />
 
       </main>

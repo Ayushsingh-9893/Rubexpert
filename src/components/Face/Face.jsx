@@ -1,14 +1,21 @@
 import "./Face.css";
-import { useState } from "react";
 
-function Face({ title, color, selectedColor }) {
-
-    const [stickers, setStickers] = useState(Array(9).fill(color));
+function Face({
+    title,
+    stickers,
+    cubeState,
+    setCubeState,
+    selectedColor
+}) {
 
     function handleStickerClick(index) {
-        const newStickers = [...stickers];
-        newStickers[index] = selectedColor;
-        setStickers(newStickers);
+        const updatedFace = [...stickers];
+        updatedFace[index] = selectedColor;
+
+        setCubeState({
+            ...cubeState,
+            [title]: updatedFace
+        });
     }
 
     return (
