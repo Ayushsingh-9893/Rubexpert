@@ -1,3 +1,5 @@
+const { spawn } = require("child_process");
+
 const express = require("express");
 const cors = require("cors");
 
@@ -7,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
+    console.log("POST /solve called");
     res.send("RubExpert Backend is Running 🚀");
 });
 app.post("/solve", (req, res) => {
@@ -14,10 +17,31 @@ app.post("/solve", (req, res) => {
 
     console.log("Received cube:", cube);
 
-    res.json({
-        success: true,
-        message: "Cube received successfully",
-        cube: cube
+    const python = spawn("python", ["solver.py", cube]);
+
+    let solution = "";
+    let error = "";
+
+    python.stdout.on("data", (data) => {
+        solution += data.toString();
+    });
+
+    python.stderr.on("data", (data) => {
+        error += data.toString();
+    });
+
+    python.on("close", (code) => {
+        if (code !== 0) {
+            return res.status(500).json({
+                success: false,
+                error: error.trim(),
+            });
+        }
+
+        res.json({
+            success: true,
+            solution: solution.trim(),
+        });
     });
 });
 

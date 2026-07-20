@@ -4,12 +4,22 @@ import { cubeToString } from "../../utils/cubeToString";
 
 function Solution({ cubeState }) {
   async function handleSolve() {
-    if (!validateCube(cubeState)) {
+    console.log("Solve button clicked");
+    
+    const isValid = validateCube(cubeState);
+
+    console.log("Validation:", isValid);
+
+    if (!isValid) {
         alert("Invalid cube");
         return;
     }
 
+console.log("About to send request");
+
     const cubeString = cubeToString(cubeState);
+    console.log(cubeString);
+    console.log(validateCube(cubeState));
 
     try {
         const response = await fetch("http://localhost:5000/solve", {
@@ -25,7 +35,12 @@ function Solution({ cubeState }) {
         const data = await response.json();
 
         console.log(data);
-        alert(data.message);
+
+        if (data.success) {
+            alert(data.solution || "Cube is already solved!");
+        } else {
+            alert(data.error);
+        }
 
     } catch (error) {
         console.error(error);
